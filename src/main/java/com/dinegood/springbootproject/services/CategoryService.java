@@ -1,6 +1,6 @@
 package com.dinegood.springbootproject.services;
 
-import com.dinegood.springbootproject.dao.Categorydao;
+import com.dinegood.springbootproject.dao.CategoryDao;
 import com.dinegood.springbootproject.repo.Repo;
 import com.dinegood.springbootproject.model.Categorydetails;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ public class CategoryService {
      @Autowired
      private Repo repo;
      @Autowired
-     private Categorydao categorydao;
+     private CategoryDao categorydao;
      public List<Categorydetails> getAllcat(){
          return categorydao.getcatgs();
      }

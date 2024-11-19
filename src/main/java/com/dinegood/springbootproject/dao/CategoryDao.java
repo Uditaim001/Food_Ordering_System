@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 @Component
-public class Categorydao {
+public class CategoryDao {
     @Autowired
     private Repo repo;
     public List<Categorydetails> getcatgs(){

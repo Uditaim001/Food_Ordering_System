@@ -1,7 +1,7 @@
 package com.dinegood.springbootproject.services;
 
-import com.dinegood.springbootproject.dao.Cartdao;
-import com.dinegood.springbootproject.dao.Itemdao;
+import com.dinegood.springbootproject.dao.CartDao;
+import com.dinegood.springbootproject.dao.ItemDao;
 import com.dinegood.springbootproject.model.CartDetails;
 import com.dinegood.springbootproject.model.Itemdetails;
 import com.dinegood.springbootproject.repo.CartRepo;
@@ -21,9 +21,9 @@ public class CartService {
     private ItemRepo itemRepo;
 
     @Autowired
-    private Cartdao cartdao;
+    private CartDao cartdao;
     @Autowired
-    private Itemdao itemdao;
+    private ItemDao itemdao;
 
     public Itemdetails addItemToCart(final int itemId, final int userId) {
         Optional<Itemdetails> itemOpt = itemdao.findByCategs(itemId);

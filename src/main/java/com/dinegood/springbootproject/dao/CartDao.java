@@ -1,7 +1,6 @@
 package com.dinegood.springbootproject.dao;
 
 import com.dinegood.springbootproject.model.CartDetails;
-import com.dinegood.springbootproject.model.Itemdetails;
 import com.dinegood.springbootproject.repo.CartRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -11,7 +10,7 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Component
-public class Cartdao {
+public class CartDao {
     @Autowired
     private CartRepo cartRepo;
     public CartDetails addItemtoCarts(final int itemcost, final int userId) {

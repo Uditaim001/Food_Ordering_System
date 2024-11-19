@@ -1,6 +1,6 @@
 package com.dinegood.springbootproject.services;
 
-import com.dinegood.springbootproject.dao.Itemdao;
+import com.dinegood.springbootproject.dao.ItemDao;
 import com.dinegood.springbootproject.manager.RedisManager;
 //import com.dinegood.springbootproject.elasticrepo.ItemElasticSearchrepo;
 import com.dinegood.springbootproject.repo.ItemRepo;
@@ -18,7 +18,7 @@ public class ItemService {
     @Autowired
     private ItemRepo itemRepo;
     @Autowired
-    private Itemdao itemdao;
+    private ItemDao itemdao;
     @Autowired
     private static RedisManager redisManager;
     @Autowired

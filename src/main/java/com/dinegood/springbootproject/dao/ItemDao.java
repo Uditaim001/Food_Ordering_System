@@ -14,7 +14,7 @@ import java.util.Optional;
 
 
 @Component
-public class Itemdao {
+public class ItemDao {
     @Autowired
     private ItemRepo itemRepo;
 
