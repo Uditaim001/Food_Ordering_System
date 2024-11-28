@@ -3,6 +3,8 @@ package com.dinegood.springbootproject.repo;
 import com.dinegood.springbootproject.cofig.RedisConfig;
 import com.dinegood.springbootproject.model.Itemdetails;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -15,7 +17,7 @@ import java.util.List;
 public interface ItemRepo extends CrudRepository<Itemdetails, Integer> {
     public List<Itemdetails> findByCategory(int id);
     List<Itemdetails> findTop5ByCategoryOrderByCostAsc(int id);
-    List<Itemdetails> findByCategoryAndRatingGreaterThanEqual(int catId, int rating);
+    Page<Itemdetails> findByCategoryAndRatingGreaterThanEqual(int catId, int rating, Pageable pageable);
 
 
 }

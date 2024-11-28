@@ -7,8 +7,12 @@ import com.dinegood.springbootproject.services.ItemService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,7 +23,7 @@ public class ItemDao {
     private ItemRepo itemRepo;
 
     @Autowired
-    private static RedisManager redisManager;
+    private RedisManager redisManager;
     @Autowired
     private static final Logger LOGGER = (Logger) LoggerFactory.getLogger(ItemService.class);
 
@@ -31,9 +35,22 @@ public class ItemDao {
         if (items != null) {
             return items;
         }
-        items = this.itemRepo.findByCategoryAndRatingGreaterThanEqual(id, 5);
-        redisManager.storeItemInRedis(key, items);
-        return items;}
+        items = new ArrayList<>();
+        int batchSize = 5;
+        int pageNumber = 0;
+        List<Itemdetails> batch;
+
+            do {
+                Pageable pageable = PageRequest.of(pageNumber, batchSize);
+                Page<Itemdetails> page = itemRepo.findByCategoryAndRatingGreaterThanEqual(id, 4, pageable);
+                batch = page.getContent();
+                items.addAll(batch);
+                pageNumber++;
+            } while (!batch.isEmpty());
+
+            redisManager.storeItemInRedis(key, items);
+            System.out.println(items.size());
+            return items;}
         catch (Exception e){
             e.printStackTrace();
         }
