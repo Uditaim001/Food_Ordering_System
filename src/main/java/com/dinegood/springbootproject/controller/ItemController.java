@@ -23,11 +23,11 @@ public class ItemController {
     public List<Itemdetails> getitems(@RequestParam final int id){
         return itemService.getCatItems(id);
     }
-    @GetMapping("/items/lowest-cost/by-category")
+    @GetMapping("/items/by-category/lowest-cost")
     public List<Itemdetails> getlowestcost(@RequestParam final int id){
         return itemService.getTop5ItemsWithLowestCost(id);
     }
-    @GetMapping("/items/high-rating/by-category")
+    @GetMapping("/items/by-category/high-rating")
     public List<Itemdetails> gettoprated(@RequestParam final int id){
         return itemService.getToprating(id);
     }

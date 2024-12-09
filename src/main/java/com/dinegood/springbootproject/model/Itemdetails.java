@@ -9,7 +9,6 @@ import java.lang.annotation.Documented;
 
 @Entity
 @Table(name="items")
-@Document(indexName = "itemdetails")
 public class Itemdetails {
 
     @Id
@@ -22,16 +21,17 @@ public class Itemdetails {
     @Field(type = FieldType.Integer)
     @Column(name="Item_cost")
     private int cost;
-
+    @Field(type = FieldType.Integer)
+    @Column(name="Cat_Id")
+    private int category;
+    @Field(type = FieldType.Integer)
+    @Column(name="rating")
+    private int rating;
     public int getId() {
         return id;
     }
 
-
-
-
-
-    public void setId(int id) {
+    public void setId(final int id) {
         this.id = id;
     }
 
@@ -39,7 +39,7 @@ public class Itemdetails {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -47,7 +47,7 @@ public class Itemdetails {
         return cost;
     }
 
-    public void setCost(int cost) {
+    public void setCost(final int cost) {
         this.cost = cost;
     }
 
@@ -55,7 +55,7 @@ public class Itemdetails {
         return category;
     }
 
-    public void setCategory(int category) {
+    public void setCategory(final int category) {
         this.category = category;
     }
 
@@ -63,13 +63,8 @@ public class Itemdetails {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(final int rating) {
         this.rating = rating;
     }
-    @Field(type = FieldType.Integer)
-    @Column(name="Cat_Id")
-    private int category;
-    @Field(type = FieldType.Integer)
-    @Column(name="rating")
-    private int rating;
+
 }

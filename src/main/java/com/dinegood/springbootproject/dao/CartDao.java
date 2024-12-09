@@ -20,9 +20,6 @@ public class CartDao {
         cart.setDate(LocalDate.from(LocalDateTime.now()));
         return cart;}
 
-    public Optional<CartDetails> findbyuser(final int userId){
-        return cartRepo.findByUserId(userId);
-
 
 }
     public Optional<CartDetails> findByUserId(int userId){

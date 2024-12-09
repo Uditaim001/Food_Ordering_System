@@ -11,7 +11,7 @@ public class UserDetails {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(final int userId) {
         this.userId = userId;
     }
 
@@ -19,7 +19,7 @@ public class UserDetails {
         return userName;
     }
 
-    public void setUserName(String userName) {
+    public void setUserName(final String userName) {
         this.userName = userName;
     }
 
@@ -27,7 +27,7 @@ public class UserDetails {
         return mobileNo;
     }
 
-    public void setMobileNo(String mobileNo) {
+    public void setMobileNo(final String mobileNo) {
         this.mobileNo = mobileNo;
     }
 
@@ -35,7 +35,7 @@ public class UserDetails {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(final String email) {
         this.email = email;
     }
 

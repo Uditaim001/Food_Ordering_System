@@ -12,11 +12,18 @@ public class CartDetails {
     @Column(name = "cart_id")
     private int cartId;
 
+    @Column(name="user_id")
+    private int userId;
+    @Column(name="Total_Amount")
+    private int amount;
+    @Column(name = "date")
+    private LocalDate date;
+
     public int getCartId() {
         return cartId;
     }
 
-    public void setCartId(int cartId) {
+    public void setCartId(final int cartId) {
         this.cartId = cartId;
     }
 
@@ -24,7 +31,7 @@ public class CartDetails {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(final int userId) {
         this.userId = userId;
     }
 
@@ -32,7 +39,7 @@ public class CartDetails {
         return amount;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(final int amount) {
         this.amount = amount;
     }
 
@@ -40,14 +47,8 @@ public class CartDetails {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(final LocalDate date) {
         this.date = date;
     }
 
-    @Column(name="user_id")
-    private int userId;
-    @Column(name="Total_Amount")
-    private int amount;
-    @Column(name = "date")
-    private LocalDate date;
 }

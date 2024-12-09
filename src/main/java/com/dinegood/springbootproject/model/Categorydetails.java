@@ -10,7 +10,6 @@ import java.util.List;
 
 @Entity
 @Table(name="category")
-@Document(indexName = "Category")
 public class Categorydetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,14 +20,6 @@ public class Categorydetails {
     @Column(name = "Category_rating")
     private int rating;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     @Column(name= "Category_name")
     private String name;
 
@@ -36,7 +27,7 @@ public class Categorydetails {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(final int id) {
         this.id = id;
     }
 
@@ -44,8 +35,16 @@ public class Categorydetails {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(final int rating) {
         this.rating = rating;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(final String name) {
+        this.name = name;
     }
 
 

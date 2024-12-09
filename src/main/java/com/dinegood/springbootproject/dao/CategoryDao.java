@@ -10,21 +10,24 @@ import java.util.List;
 public class CategoryDao {
     @Autowired
     private Repo repo;
-    public List<Categorydetails> getcatgs(){
-        try{List<Categorydetails> category= (List<Categorydetails>) this.repo.findAll();
-        return category;}
-        catch (Exception e){
-            e.printStackTrace();
-        }
-        return null;
-    }
-    public Categorydetails getCatgsById(final int id){
-        Categorydetails category=null;
+    public List<Categorydetails> getcatgs() {
         try {
-            category=this.repo.findById(id);
+            return (List<Categorydetails>) repo.findAll();
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new RuntimeException("Error fetching categories", e);
         }
-        return category;
+    }
+
+    public Categorydetails getCatgsById(final int id) {
+        try {
+            Categorydetails category = this.repo.findById(id);
+            if (category == null) {
+                throw new RuntimeException("Category not found with id: " + id);
+            }
+            return category;
+
+        } catch (Exception e) {
+            throw new RuntimeException("Error fetching category by ID: " + id, e);
+        }
     }
 }

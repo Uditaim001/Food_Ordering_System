@@ -33,7 +33,7 @@ public class CartService {
         //TODO--Put Optional here
         Itemdetails item = itemOpt.get();
 
-        Optional<CartDetails> cart=cartdao.findbyuser(userId);
+        Optional<CartDetails> cart=cartdao.findbyuserId(userId);
 
         if (cart.isPresent()) {
             cart.get().setAmount(cart.get().getAmount() + item.getCost());
